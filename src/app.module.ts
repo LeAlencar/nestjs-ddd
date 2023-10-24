@@ -7,6 +7,7 @@ import { envSchema } from './env';
 import { AuthModule } from './auth/auth.module';
 import { CreateQuestionController } from './controllers/create-question.controller';
 import { FetchRecentQuestionsController } from './controllers/fetch-recent-questions.controller';
+import { AuthenticateController } from './controllers/authenticate.controller';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { FetchRecentQuestionsController } from './controllers/fetch-recent-quest
     AuthModule,
   ],
   controllers: [
+    AuthenticateController,
     CreateAccountController,
     CreateQuestionController,
     FetchRecentQuestionsController,
