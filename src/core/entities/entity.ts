@@ -1,7 +1,7 @@
 import { UniqueEntityID } from './unique-entity-id';
 
 export abstract class Entity<Props> {
-  private _id: UniqueEntityID;
+  private readonly _id: UniqueEntityID;
   protected props: Props;
 
   get id() {
@@ -18,10 +18,6 @@ export abstract class Entity<Props> {
       return true;
     }
 
-    if (entity.id === this._id) {
-      return true;
-    }
-
-    return false;
+    return entity.id === this._id;
   }
 }
