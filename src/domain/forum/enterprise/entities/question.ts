@@ -14,7 +14,7 @@ export interface QuestionProps {
   slug: Slug;
   attachments: QuestionAttachmentList;
   createdAt: Date;
-  updatedAt?: Date;
+  updatedAt?: Date | null;
 }
 
 export class Question extends AggregateRoot<QuestionProps> {
@@ -87,10 +87,6 @@ export class Question extends AggregateRoot<QuestionProps> {
     return this.content.substring(0, 120).trimEnd().concat('...');
   }
 
-  private touch() {
-    this.props.updatedAt = new Date();
-  }
-
   static create(
     props: Optional<QuestionProps, 'createdAt' | 'slug' | 'attachments'>,
     id?: UniqueEntityID,
@@ -106,5 +102,9 @@ export class Question extends AggregateRoot<QuestionProps> {
     );
 
     return question;
+  }
+
+  private touch() {
+    this.props.updatedAt = new Date();
   }
 }
