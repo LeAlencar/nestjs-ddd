@@ -1,7 +1,7 @@
 import { QuestionAttachment } from '../../enterprise/entities/question-attachment';
 
 export abstract class QuestionAttachmentsRepository {
-  abstract indManyByQuestionId(
+  abstract findManyByQuestionId(
     questionId: string,
   ): Promise<QuestionAttachment[]>;
 
