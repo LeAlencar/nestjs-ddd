@@ -60,7 +60,7 @@ export class PrismaAnswerRepository implements AnswersRepository {
   async save(answer: Answer): Promise<void> {
     const data = PrismaAnswerMapper.toPrisma(answer);
 
-    await this.prisma.question.update({
+    await this.prisma.answer.update({
       where: {
         id: data.id,
       },
